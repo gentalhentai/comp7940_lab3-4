@@ -5,6 +5,7 @@ import configparser
 import logging
 import redis
 from flask import Flask
+from threading import Thread
 
 app = Flask(__name__)
 
@@ -77,5 +78,8 @@ def add(update: Update, context: CallbackContext) -> None:
     except (IndexError, ValueError):
         update.message.reply_text('Usage: /add <keyword>')
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=10000)
+    flask_thread = Thread(target=lambda: app.run(host="0.0.0.0", port=10000))
+    flask_thread.daemon = True  
+    flask_thread.start()
+
     main()
