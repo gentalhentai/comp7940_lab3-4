@@ -4,6 +4,9 @@ from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters,Callb
 import configparser
 import logging
 import redis
+from flask import Flask
+
+app = Flask(__name__)
 
 from ChatGPT_HKBU import HKBU_ChatGPT
 def equiped_chatgpt(update, context): 
@@ -74,4 +77,5 @@ def add(update: Update, context: CallbackContext) -> None:
     except (IndexError, ValueError):
         update.message.reply_text('Usage: /add <keyword>')
 if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=10000)
     main()
