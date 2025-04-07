@@ -8,4 +8,7 @@ COPY ./requirements.txt /APP
 RUN pip install --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
+ENV REDIS_HOST=redis://red-cvplh6s9c44c73c540k0:6379
+ENV REDIS_PORT=6379
+
 CMD python app.py
