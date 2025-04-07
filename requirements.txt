@@ -18,7 +18,7 @@ tzdata==2025.1
 tzlocal==5.3
 urllib3==1.26.18
 filetype==1.2.0
-flask==2.2.3
+werkzeug==2.0.3
 requests>=2.26.0
 flask>=2.0.0
 gunicorn>=20.1.0
